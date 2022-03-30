@@ -6,6 +6,10 @@ const Constraint = Matter.Constraint;
 var engine, world;
 var holder, ball, ground, stand1, stand2, ball, slingShot, polygon, polygonImg;
 
+function preload(){
+  polygonImg = loadImage("Images/polygon.png");
+}
+
 function setup(){
 
   createCanvas(900, 400);
@@ -17,8 +21,6 @@ function setup(){
   ground = new Ground();
   stand1 = new Stand(390, 300, 250, 15);
   stand2 = new Stand(700, 200, 250, 15);
-
-  polygon = new Polygon(50, 200, 50);
  
   //level one
   block1 = new Block(300, 275, 30, 40);
@@ -62,17 +64,21 @@ function setup(){
   //top
   block16 = new Block(390, 155, 30, 40);
   block016 = new Block(700, 55, 30, 40);
+
+  polygon = Bodies.circle(50, 200, 20);
+  World.add(world, polygon); 
 }
 
 function draw(){
 
   background(56, 44, 44); 
   display();
+
+  imageMode(CENTER);
+  image(polygonImg, polygon.position.x, polygon.position,y, 40, 40);
 }
 
 function display(){
-
-  //polygon.display();
 
   textSize(20);
   fill("lightyellow");
