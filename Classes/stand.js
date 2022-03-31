@@ -1,4 +1,4 @@
-class Stand{
+class Stand {
 
   constructor(x, y, width, height) {
     

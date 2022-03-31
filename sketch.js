@@ -4,7 +4,7 @@ const Bodies = Matter.Bodies;
 const Constraint = Matter.Constraint;
 
 var engine, world;
-var holder, ball, ground, stand1, stand2, ball, slingShot, polygon, polygonImg;
+var holder, ball, ground, stand1, stand2, ball, slingshot, polygon, polygonImg;
 
 function preload(){
   polygonImg = loadImage("Images/polygon.png");
@@ -22,7 +22,7 @@ function setup(){
   stand1 = new Stand(390, 300, 250, 15);
   stand2 = new Stand(700, 200, 250, 15);
  
-  //level one
+  //#1
   block1 = new Block(300, 275, 30, 40);
   block2 = new Block(330, 275, 30, 40);
   block3 = new Block(360, 275, 30, 40);
@@ -39,7 +39,7 @@ function setup(){
   block06 = new Block(760, 175, 30, 40);
   block07 = new Block(790, 175, 30, 40);
 
-  //level two
+  //#2
   block8 = new Block(330, 235, 30, 40);
   block9 = new Block(360, 235, 30, 40);
   block10 = new Block(390, 235, 30, 40);
@@ -52,7 +52,7 @@ function setup(){
   block011 = new Block(730, 135, 30, 40);
   block012 = new Block(760, 135, 30, 40);
 
-  //level three
+  //#3
   block13 = new Block(360, 195, 30, 40);
   block14 = new Block(390, 195, 30, 40);
   block15 = new Block(420, 195, 30, 40);
@@ -67,6 +67,8 @@ function setup(){
 
   polygon = Bodies.circle(50, 200, 20);
   World.add(world, polygon); 
+
+  slingshot = new Slingshot(polygon.body, {x: 200, y:100});
 }
 
 function draw(){
@@ -75,7 +77,7 @@ function draw(){
   display();
 
   imageMode(CENTER);
-  image(polygonImg, polygon.position.x, polygon.position,y, 40, 40);
+  image(polygonImg, polygon.position.x, polygon.position.y, 40, 40);
 }
 
 function display(){
@@ -130,4 +132,6 @@ function display(){
   fill("grey");
     block16.display();
     block016.display();
+
+  slingshot.display();
 }
