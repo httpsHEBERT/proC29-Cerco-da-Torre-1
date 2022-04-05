@@ -18,13 +18,20 @@ class Slingshot {
         this.sling.bodyA = null;
     }
 
-    display(){
-        
-        var pointA = this.sling.bodyA.position;
-        var pointB = this.pointB;
+    attach(body){
+        this.sling.bodyA = body;
+    }
 
-        strokeWeight(4);
-        stroke(188, 67, 67);
-        line(pointA.x, pointA.y, pointB.x, pointB.y);
+    display(){
+
+        if(this.sling.bodyA){
+        
+            var pointA = this.sling.bodyA.position;
+            var pointB = this.pointB;
+
+            strokeWeight(4);
+            stroke(188, 67, 67);
+            line(pointA.x, pointA.y, pointB.x, pointB.y);
+        }
     }
 }
